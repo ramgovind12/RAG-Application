@@ -3,7 +3,7 @@ import streamlit as st
 from dotenv import load_dotenv
 from modules.rag_engine import retrieve_similar_vectors
 from modules.rag_engine import generate_response_ollama
-from modules.database import process_and_store_pdfs
+from retrieval_modules.save_docs import process_and_store_pdfs
 
 
 # os.environ["STREAMLIT_SERVER_ADDRESS"] = "192.168.1.33"
