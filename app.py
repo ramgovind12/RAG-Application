@@ -13,21 +13,23 @@ from retrieval_modules.save_docs import process_and_store_pdfs
 
 load_dotenv()
 
-# Function to store uploaded files
-def store_uploaded_file(uploaded_files, uploaded_file_names):
-    if uploaded_files:
-        for uploaded_file in uploaded_files:
-            file_path = os.path.join('data', uploaded_file.name)
-            with open(file_path, 'wb') as f:
-                f.write(uploaded_file.getbuffer())
-            uploaded_file_names.append(uploaded_file.name)
+DATA_FOLDER = "data"
 
-    st.success(f"Uploaded {len(uploaded_files)} file(s): {', '.join(uploaded_file_names)}")
+def store_files(uploaded_files):
+    if not os.path.exists(DATA_FOLDER):
+        os.makedirs(DATA_FOLDER)
+    for file in uploaded_files:
+        file_name = file.name
+        file_path = os.path.join(DATA_FOLDER,file_name)
 
-# Function to add to database
-def add_to_database(uploaded_files):
-    updated_file_paths = ['data/' + uploaded_file.name for uploaded_file in uploaded_files]
-    process_and_store_pdfs(updated_file_paths)
+        with open(file_path,"wb") as f:
+            f.write(file.getbuffer())
+        print(f"File saved to {file_path}")
+
+def save_in_database(uploaded_files):
+    files = [os.path.join(DATA_FOLDER,file.name) for file in uploaded_files]
+    process_and_store_pdfs(files)
+
 
 # Streamlit app layout
 st.title("Search with RAG")
@@ -47,8 +49,9 @@ with st.sidebar:
     # Trigger actions only when files are uploaded and button is clicked
     if uploaded_files:
         if st.button("Store and Add to Database"):
-            store_uploaded_file(uploaded_files, uploaded_file_names)  # Store files and update list
-            add_to_database(uploaded_files)  # Add to database
+            store_files(uploaded_files)
+            save_in_database(uploaded_files)
+            
 
 # Display the uploaded file names on the main screen
 if uploaded_file_names:
