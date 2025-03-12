@@ -4,6 +4,8 @@ from dotenv import load_dotenv
 from sentence_transformers import SentenceTransformer
 from modules.preprocess import get_pdf_content, get_chunks, get_embeddings
 
+
+#loading environment variables
 load_dotenv()
 
 def get_db_connection():
