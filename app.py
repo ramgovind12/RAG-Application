@@ -10,7 +10,7 @@ from retrieval_modules.save_docs import process_and_store_pdfs
 # os.environ["STREAMLIT_SERVER_PORT"] = "8501"
 # os.environ["STREAMLIT_SERVER_ENABLECORS"] = "false"
 
-
+#loading env variables
 load_dotenv()
 
 DATA_FOLDER = "data"
