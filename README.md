@@ -42,7 +42,7 @@ This project aims to provide a practical example of building a RAG system with a
 -   **Python:** Programming language for the application.
 -   **PostgreSQL:** Relational database with PGVector extension.
 -   **PGVector:** PostgreSQL extension for vector similarity search.
--   **Embedding Model (e.g., Sentence Transformers, OpenAI Embeddings):** For generating vector embeddings.
+-   **Embedding Model (e.g., Sentence Transformers):** For generating vector embeddings.
 -   **LLM (e.g., OpenAI API, Hugging Face Transformers):** For generating responses.
 -   **Streamlit:** For creating the web UI.
 -   **Libraries:**
