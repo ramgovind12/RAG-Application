@@ -15,12 +15,10 @@ This repository provides the implementation of a Retrieval Augmented Generation 
 ## Features
 
 -   **PGVector Integration:** Seamless integration with PostgreSQL and the PGVector extension for vector storage and similarity search.
--   **Document Ingestion:** Scripts for ingesting and embedding documents into the vector database.
+-   **Document Ingestion:** Ingest and embed documents into the vector database.
 -   **Semantic Search:** Implementation of semantic search using vector embeddings.
--   **LLM Interaction:** Example of integrating retrieved information with an LLM (e.g., OpenAI, Hugging Face models).
+-   **LLM Interaction:** Retrieved information forwarded to LLM.
 -   **Streamlit UI:** User-friendly web interface for querying and displaying results.
--   **Configurable Parameters:** Easily configurable parameters for database connection, embedding models, and LLM settings.
--   **Clear Code Structure:** Well-organized code with clear documentation.
 
 ## Architecture
 
@@ -82,7 +80,6 @@ This repository provides the implementation of a Retrieval Augmented Generation 
         POSTGRES_USER=your_user
         POSTGRES_PASSWORD=your_password
         POSTGRES_DB=your_database
-        OPENAI_API_KEY=your_openai_api_key (if using OpenAI)
         EMBEDDING_MODEL=your_embedding_model_name (e.g., "sentence-transformers/all-mpnet-base-v2")
         ```
 
